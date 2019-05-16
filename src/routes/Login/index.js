@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Form, Button, Input } from 'antd';
 
-const { FormItem } = Form;
+const FormItem = Form.Item;
 class LoginForm extends Component {
   handleLogin = () => {
     const { form: { validateFields }, onOk } = this.props;
