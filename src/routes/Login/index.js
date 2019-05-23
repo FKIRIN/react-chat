@@ -23,6 +23,7 @@ class LoginForm extends Component {
       onOk: this.handleLogin,
       onCancel,
       title: "请输入昵称",
+      footer: null,
     };
     return (
       <Modal {...modalProps}>

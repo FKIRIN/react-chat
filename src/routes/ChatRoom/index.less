@@ -1,0 +1,86 @@
+.page-header {
+  display: flex;
+  max-width: 1200px;
+  height: 8%;
+  margin: 0 auto;
+  color: #000;
+  font-size: 18px;
+  justify-content: space-between;
+  .header-user {
+    margin-left: 5%; 
+    padding: 10px 0;
+  }
+  .logout {
+    padding: 10px 0;
+    margin-right: 5%;
+  }
+}
+.chat-content {
+  display: flex;
+  max-width: 1200px;
+  height: 92%;
+  margin: 0 auto;
+  .userList {
+    width: 25%;
+    height: auto;
+    border-right: 1px solid #666;
+  }
+  .chat-message {
+    background: url(../../assets/cat.jpeg) no-repeat;
+    background-size: cover;
+    width: 75%;
+    height: auto;
+    .infoList {
+      height: 75%;
+      border-bottom: 1px solid  #666;
+      .system-message {
+        font-size: 13px;
+        color: #e0e0e0;
+        text-align: center;
+      }
+      .my-message {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 5px 10px;
+        .time {
+          margin-bottom: 0em;
+        }
+        .message-content {
+          background: #a2e563;
+          border-radius: 35%;
+          padding: 5px 10px;
+        }
+      }
+      .other-message {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5px 10px;
+        .time {
+          margin-bottom: 0em;
+        }
+        .message-content {
+          background: #fff;
+          border-radius: 35%;
+          padding: 5px 10px;
+        }
+      }
+    }
+    .sendArea {
+      height: auto;
+      display: flex;
+      position: relative;
+      .writeArea {
+        width: 100%;
+      }
+      .send-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}

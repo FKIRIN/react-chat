@@ -2,6 +2,7 @@ const app = require('http').createServer();
 const io = require('socket.io')(app);
 const openBrowsers = require('open-browsers');
 
+
 const onLineUsers = {};
 let onLineCount = 0;
 io.on('connection', function(socket) {
@@ -50,9 +51,9 @@ io.on('connection', function(socket) {
   })
 })
 
-app.listen(3300, function(err) {
+app.listen(3301, function(err) {
   if (!err) {
-    console.log('websocket启动端口: 3300')
-    openBrowsers('http://localhost:3300');
+    console.log('websocket启动端口: 3301')
+    // openBrowsers('http://localhost:3300');
   }
 })

@@ -1,10 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import uuid from 'uuid/v4';
+import { connect } from 'react-redux';
+
 import Login from './Login';
 import io from 'socket.io-client';
+import ChatRoom from './ChatRoom';
+import { login } from '../action/chatting';
  
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,13 +18,15 @@ export default class App extends Component {
   }
 
   handleLogin = (values) => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'login',
-      payload: {
-        userId: uuid(),
-        username: values.username,
-      }
+    const { chatState: { socket }, login } = this.props;
+    login({
+      userId: uuid(),
+      username: values.username,
+    });
+    this.handleModalVisible(false);
+    socket.emit('login', { 
+      userId: uuid(),
+      username: values.username, 
     })
   }
 
@@ -39,9 +45,16 @@ export default class App extends Component {
     };
     return (
       <Fragment>
-        <div>麒麟小马</div>
+        <ChatRoom />
         <Login {...modalProps} />
       </Fragment>
     )
   }
 }
+
+export default  connect(
+  (state)=>({chatState: state.chat}),
+  {
+    login,
+  }
+)(App)
